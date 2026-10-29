@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mellow Coffee 咖啡廳</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #3c332d;
+      background: #f8f5f0;
+      line-height: 1.8;
+    }
+
+    header {
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fffdf9;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #3c332d;
+    }
+
+    .hero {
+      min-height: 430px;
+      padding: 90px 8%;
+      text-align: center;
+      background: #e9dfd2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      margin: 10px 0;
+    }
+
+    .hero p { font-size: 18px; }
+
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      border-radius: 30px;
+      background: #655344;
+      color: white;
+      text-decoration: none;
+    }
+
+    .section {
+      padding: 60px 8%;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 14px;
+    }
+
+    .emoji { font-size: 42px; }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      background: #3c332d;
+      color: white;
+    }
+
+    @media (max-width: 650px) {
+      header { flex-direction: column; gap: 12px; }
+      nav a { margin: 0 8px; font-size: 14px; }
+      .cards { grid-template-columns: 1fr; }
+      .hero { padding: 60px 6%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Mellow Coffee</div>
+    <nav>
+      <a href="#home">首頁</a>
+      <a href="#about">關於我們</a>
+      <a href="#menu">咖啡與甜點</a>
+      <a href="contact.html">聯絡我們</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <p>GOOD COFFEE, SLOW DAYS.</p>
+      <h1>讓生活，慢一點。</h1>
+      <p>一杯咖啡、一份甜點，享受屬於自己的悠閒時光。</p>
+      <a class="button" href="#menu">探索我們的餐點</a>
+    </section>
+
+    <section class="section" id="about">
+      <h2>關於 Mellow Coffee</h2>
+      <p>在城市的一角，為忙碌的生活留一個溫柔的空間。</p>
+      <p>我們用心準備咖啡與甜點，希望每一次停留，都成為日常中的小確幸。</p>
+    </section>
+
+    <section class="section" id="menu">
+      <h2>咖啡與甜點</h2>
+      <p>挑選一份喜歡的味道，享受今天的美好。</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="emoji">☕</div>
+          <h3>手沖咖啡</h3>
+          <p>細緻香氣，感受咖啡豆的風味。</p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">🥐</div>
+          <h3>手作甜點</h3>
+          <p>搭配咖啡的療癒小點心。</p>
+        </div>
+
+        <div class="card">
+          <div class="emoji">🍰</div>
+          <h3>每日蛋糕</h3>
+          <p>為平凡的一天增添甜蜜。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Mellow Coffee｜品味生活的每一天
+  </footer>
+
+</body>
+</html>
