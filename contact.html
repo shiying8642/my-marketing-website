@@ -115,14 +115,55 @@
 
   <footer>© 2026 Mellow Coffee</footer>
 
-  <script>
-    document.getElementById("contactForm")
-      .addEventListener("submit", function(event) {
-        event.preventDefault();
 
-        document.getElementById("notice").textContent =
-          "表單外觀測試成功！目前尚未真正傳送資料。";
-      });
-  </script>
+<!-- 載入 EmailJS 套件 -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  // 初始化 EmailJS
+  emailjs.init({
+    publicKey: "P2pjlWmqKn2cJn7Hq"
+  });
+
+  // 找到聯絡表單
+  const contactForm = document.getElementById("contactForm");
+  const notice = document.getElementById("notice");
+
+  // 按下送出後寄出郵件
+  contactForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const button = contactForm.querySelector("button");
+    button.disabled = true;
+    button.textContent = "寄送中...";
+
+    const templateParams = {
+      from_name: document.getElementById("name").value,
+      from_email: document.getElementById("email").value,
+      message: document.getElementById("message").value
+    };
+
+    emailjs.send(
+      "請填入你的_SERVICE_ID",
+      "請填入你的_TEMPLATE_ID",
+      templateParams
+    )
+    .then(function() {
+      notice.textContent = "訊息已成功寄出！感謝你的聯絡。";
+      notice.style.color = "green";
+      contactForm.reset();
+    })
+    .catch(function(error) {
+      console.error("寄送失敗：", error);
+      notice.textContent = "寄送失敗，請稍後再試。";
+      notice.style.color = "red";
+    })
+    .finally(function() {
+      button.disabled = false;
+      button.textContent = "送出訊息";
+    });
+  });
+</script>
+
 </body>
 </html>
